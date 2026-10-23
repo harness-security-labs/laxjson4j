@@ -1,0 +1,58 @@
+{
+    "name": "Sample Data",
+    "version": 1.0,
+    "active": true,
+    "timestamp": "2025-03-03T12:34:56Z",
+    "description": "This is a test JSON file with a variety of types.",
+    "users": [
+        {
+            "id": 1,
+            "name": "Alice",
+            "age": 30,
+            "email": "alice@example.com",
+            "verified": true,
+            "balance": 12345.67,
+            "preferences": {
+                "newsletter": false,
+                "theme": "dark",
+                "notifications": ["email", "sms"]
+            }
+        },
+        {
+            "id": 2,
+            "name": "Bob",
+            "age": 45,
+            "email": "bob@example.com",
+            "verified": false,
+            "balance": -500.5,
+            "preferences": {
+                "newsletter": true,
+                "theme": "light",
+                "notifications": []
+            }
+        }
+    ],
+    "metrics": {
+        "temperature": 22.5,
+        "pressure": 1013,
+        "humidity": 60,
+        "coordinates": {
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "elevation": 30.5e2
+        }
+    },
+    "tags": ["json", "example", "test", null, true],
+    "values": [100, 200, -300.02e3],
+    "features": {
+        "enabled": true,
+        "count": 5,
+        "subfeatures": [
+            {"name": "sub1", "enabled": true},
+            {"name": "sub2", "enabled": false}
+        ]
+    },
+    "emptyObject": {},
+    "emptyArray": [],
+    "nullField": null
+}

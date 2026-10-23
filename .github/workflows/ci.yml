@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/pull_request_template.md'
+      - 'LICENSE'
+      - '.gitignore'
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'docs/**'
+      - 'LICENSE'
+      - '.gitignore'
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: build (JDK ${{ matrix.java }}, ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        java: [11, 17, 21, 25]
+        os: [ubuntu-24.04]
+        include:
+          - java: 21
+            os: macos-14
+          - java: 17
+            os: windows-2022
+    env:
+      JAVA_OPTS: "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Install the matrix JDK (used as the Gradle toolchain to compile/run on that
+      # version) plus JDK 17 to launch Gradle itself (Gradle 9 requires JVM 17+).
+      # setup-java points JAVA_HOME at the last-listed version (17), and
+      # gradle/actions/setup-gradle auto-detects both for toolchain resolution.
+      - name: Set up JDK ${{ matrix.java }} (and JDK 17 to run Gradle)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: |
+            ${{ matrix.java }}
+            17
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-read-only: ${{ github.event_name == 'pull_request' }}
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Build & test
+        run: ./gradlew --no-daemon --stacktrace -PjavaVersion=${{ matrix.java }} check
+
+      - name: Compile benchmarks
+        run: ./gradlew --no-daemon --stacktrace -PjavaVersion=${{ matrix.java }} :benchmarks:compileJmhJava
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-jdk${{ matrix.java }}-${{ matrix.os }}
+          path: |
+            build/reports/tests/
+            build/test-results/
+          retention-days: 7

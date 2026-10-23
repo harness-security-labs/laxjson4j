@@ -1,0 +1,1 @@
+{"id":12345,"name":"John Doe","age":30,"balance":2500.5,"isActive":true,"address":{"street":"123 Main St","city":"New York","zip":10001},"hobbies":["reading","gaming","traveling"],"friends":[{"id":1,"name":"Alice"},{"id":2,"name":"Bob"}]}

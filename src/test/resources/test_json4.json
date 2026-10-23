@@ -1,0 +1,15 @@
+{
+            "arraykey": [
+                333,
+                444,
+                "abc"
+            ],
+            "boolean": true,
+            "color": "gold",
+            "null": null,
+            "number": 123,
+            "object": [
+                {"akey": "aval"},
+                {"bkey": "bval"}
+            ]
+        }

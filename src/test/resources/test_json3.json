@@ -1,0 +1,60 @@
+{
+    "university": "Global Tech University",
+    "established": 1950,
+    "accredited": true,
+    "campuses": [
+        {
+            "location": "New York",
+            "students": 15000,
+            "faculties": ["Engineering", "Science", "Business"],
+            "rank": 5
+        },
+        {
+            "location": "London",
+            "students": 12000,
+            "faculties": ["Law", "Medicine", "Arts"],
+            "rank": 8
+        }
+    ],
+    "researchFunding": 75000000.25,
+    "globalRanking": {
+        "2023": 10,
+        "2024": 7,
+        "2025": 5
+    },
+    "professors": [
+        {
+            "name": "Dr. Alan Smith",
+            "department": "Engineering",
+            "publications": 50,
+            "awards": [
+                {"name": "Best Researcher Award", "year": 2020},
+                {"name": "Tech Innovation Prize", "year": 2022}
+            ]
+        },
+        {
+            "name": "Dr. Emily Clarke",
+            "department": "Medicine",
+            "publications": 80,
+            "awards": []
+        }
+    ],
+    "library": {
+        "books": 200000,
+        "digitalResources": ["journals", "ebooks", "online courses"],
+        "subscriptionActive": true
+    },
+    "partnerships": [
+        {"name": "MIT", "collaborations": ["AI Research", "Quantum Computing"]},
+        {"name": "Stanford", "collaborations": ["Biotech", "Neuroscience"]}
+    ],
+    "contact": {
+        "email": "info@globaltech.edu",
+        "phone": "+1-123-456-7890",
+        "socialMedia": {
+            "twitter": "@GlobalTechUni",
+            "linkedin": "global-tech-university"
+        }
+    },
+    "campusEvents": null
+}

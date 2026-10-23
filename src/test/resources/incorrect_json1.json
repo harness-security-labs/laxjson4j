@@ -1,0 +1,30 @@
+{
+    "timestamp": "2025-03-03T12:34:56
+    "nullField": null,
+    // Single line comment: To be ignored
+    /*
+        Multi line comment
+        To be ignored by the Lexer
+    */
+    "users": [
+        {
+            "id": 1
+            "name": "Alice",
+            "age": 3.0e1,
+            "verified": true,
+            "balance": 12345.67,
+            "preferences": {
+                "newsletter": false,
+                "theme": "dark",
+                "notifications": ["email", "sms"]
+            }
+        },
+    ]
+    "metrics": {
+        "temperature": 22.5,
+        "pressure": 1013,
+        "humidity": 60,
+        "coordinates": {
+            "latitude": 37.7749,
+            "longitude": -122.4194,
+            "elevation": 30.5e2
