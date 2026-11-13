@@ -101,6 +101,10 @@ Each behaviour is shown with a before/after example in [`docs/usage.md`](docs/us
 ./gradlew :benchmarks:jmh     # run the JMH benchmarks
 ```
 
+## Contributing
+
+External contributions are accepted. A change can be merged only after the contributor signs the Contributor License Agreement. SECENG applies that agreement on GitHub when a pull request is opened.
+
 ## License
 
-See [`LICENSE`](LICENSE).
+Licensed under the Apache License, Version 2.0. See [`LICENSE.md`](LICENSE.md). Copyright and attribution are in [`NOTICE.md`](NOTICE.md).

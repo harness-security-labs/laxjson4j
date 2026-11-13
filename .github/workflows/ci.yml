@@ -8,14 +8,14 @@ on:
       - 'docs/**'
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/pull_request_template.md'
-      - 'LICENSE'
+      - 'LICENSE.md'
       - '.gitignore'
   push:
     branches: [main]
     paths-ignore:
       - '**/*.md'
       - 'docs/**'
-      - 'LICENSE'
+      - 'LICENSE.md'
       - '.gitignore'
 
 concurrency:
