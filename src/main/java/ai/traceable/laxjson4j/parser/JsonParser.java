@@ -114,7 +114,6 @@ public final class JsonParser {
   void skipWhitespace() {
     int p = ptr;
     // Cache buf as local — saves one field load per character in the inner loop.
-    // Same technique as Gson's nextNonWhitespace; see that method's comment for rationale.
     final char[] b = buf;
 
     outer:
@@ -426,7 +425,6 @@ public final class JsonParser {
 
   String parseQuotedString() {
     // Cache fields as locals — reduces field reads in the tight inner loop.
-    // Technique from Gson's JsonReader (see nextQuotedValue / peekNumber comments).
     int p = ++ptr;
     int start = p;
     final int e = end;

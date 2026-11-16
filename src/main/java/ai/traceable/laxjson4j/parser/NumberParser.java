@@ -1,3 +1,5 @@
+// Portions adapted and modified from Jackson (jackson-core, io/NumberInput.java).
+// Copyright 2007-, Tatu Saloranta. Licensed under the Apache License, Version 2.0. See NOTICE.md.
 package ai.traceable.laxjson4j.parser;
 
 import ch.randelshofer.fastdoubleparser.JavaDoubleParser;

@@ -1,3 +1,5 @@
+// ESCAPE_TABLE and escapeString adapted and modified from Gson (stream/JsonWriter.java).
+// Copyright (C) 2010 Google Inc. Licensed under the Apache License, Version 2.0. See NOTICE.md.
 package ai.traceable.laxjson4j.node;
 
 import java.math.BigDecimal;
